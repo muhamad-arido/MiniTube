@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "YouTube Embeded",
+  title: "MiniTube",
   description:
     "rasakan nonton YouTube tanpa patah-patah di laptop kentang anda.",
 };

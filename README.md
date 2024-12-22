@@ -1,36 +1,95 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# MiniTube
 
-## Getting Started
+Aplikasi sederhana untuk menonton YouTube tanpa patah-patah di laptop kentang. Dibangun menggunakan **Next.js** dengan App Router, **Tailwind CSS**, dan desain komponen modular untuk performa optimal.
 
-First, run the development server:
+---
+
+## Fitur Utama
+
+- **Input URL YouTube:**
+  - Memvalidasi URL YouTube yang dimasukkan pengguna.
+  - Mengonversi URL menjadi URL embed untuk iframe.
+- **Pemutaran Video:**
+  - Menampilkan video dalam elemen iframe responsif.
+  - Dukungan autoplay untuk pengalaman menonton yang mulus.
+- **Penyimpanan URL:**
+  - URL video terakhir disimpan di localStorage sehingga tidak hilang saat aplikasi dimuat ulang.
+- **Tombol Hapus:**
+  - Menghapus URL video dan reset aplikasi.
+- **Alert dan Confirm:**
+  - Komponen custom untuk memberi feedback dan konfirmasi aksi pengguna.
+
+---
+
+## Teknologi yang Digunakan
+
+- **[Next.js](https://nextjs.org/):** Framework React modern untuk pengembangan aplikasi web.
+- **[Tailwind CSS](https://tailwindcss.com/):** Framework utility-first untuk styling.
+- **Atomic Design:** Struktur komponen modular untuk kemudahan pengelolaan.
+
+---
+
+## Demo
+
+Aplikasi ini telah dideploy dan dapat diakses di:
+[MiniTube - https://mini-tube-hazel.vercel.app](https://mini-tube-hazel.vercel.app)
+
+---
+
+## Cara Memulai Proyek
+
+Ikuti langkah-langkah di bawah ini untuk menjalankan proyek secara lokal:
+
+### 1. Clone Repositori
+
+```bash
+git clone https://github.com/muhamad-arido/MiniTube.git
+```
+
+### 2. Masuk ke Direktori Proyek
+
+```bash
+cd MiniTube
+```
+
+### 3. Instal Dependensi
+
+Pastikan Anda sudah menginstal **Node.js** dan **npm** atau **yarn** di sistem Anda.
+
+```bash
+npm install
+```
+
+atau dengan Yarn:
+
+```bash
+yarn install
+```
+
+### 4. Jalankan Proyek
+
+Untuk menjalankan aplikasi di mode pengembangan:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+atau dengan Yarn:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+yarn dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Akses aplikasi di [http://localhost:3000](http://localhost:3000).
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## Kontribusi
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Jika Anda ingin berkontribusi, silakan fork repositori ini dan buat pull request dengan perubahan atau fitur yang diusulkan.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## Lisensi
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Proyek ini dilisensikan di bawah [MIT License](LICENSE).
