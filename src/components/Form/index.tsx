@@ -23,7 +23,7 @@ export default function Form({
       />
       <button
         type="submit"
-        className="px-6 py-3 text-lg bg-yellow-400 text-slate-700 font-bold rounded-md hover:bg-yellow-300"
+        className="px-6 py-3 text-lg bg-yellow-400 text-slate-800 font-bold rounded-md hover:bg-yellow-500"
       >
         Tonton
       </button>

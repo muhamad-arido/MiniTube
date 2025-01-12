@@ -15,6 +15,7 @@ export default function Home() {
     alertMessage,
     showConfirm,
     handleSubmit,
+    handlePasteLink,
     handleDeleteVideo,
     handleConfirmAction,
     handleCancelAction,
@@ -40,7 +41,11 @@ export default function Home() {
       )}
 
       {embedUrl ? (
-        <Video embedUrl={embedUrl} onDelete={handleDeleteVideo} />
+        <Video
+          embedUrl={embedUrl}
+          onDelete={handleDeleteVideo}
+          onPaste={handlePasteLink}
+        />
       ) : (
         <Form
           youtubeUrl={youtubeUrl}

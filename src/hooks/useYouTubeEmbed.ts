@@ -27,6 +27,31 @@ export default function useYouTubeEmbed() {
     }
   };
 
+  const handlePasteLink = async () => {
+    try {
+      const clipboardText = await navigator.clipboard.readText();
+      const videoID = getYouTubeVideoID(clipboardText);
+      if (videoID) {
+        const newEmbedUrl = `https://www.youtube.com/embed/${videoID}?autoplay=1`;
+
+        if (newEmbedUrl === embedUrl) {
+          setAlertMessage(
+            "Tautan yang Anda salin adalah video yang sama dengan yang sedang diputar"
+          );
+          return;
+        }
+
+        setEmbedUrl(newEmbedUrl);
+        localStorage.setItem("embedUrl", newEmbedUrl);
+      } else {
+        setAlertMessage("URL YouTube tidak valid!");
+      }
+    } catch (error) {
+      console.log(error);
+      setAlertMessage("Gagal membaca clipboard. Pastikan izin diizinkan.");
+    }
+  };
+
   useEffect(() => {
     const savedEmbedUrl = localStorage.getItem("embedUrl");
     if (savedEmbedUrl) {
@@ -67,6 +92,7 @@ export default function useYouTubeEmbed() {
     alertMessage,
     showConfirm,
     handleSubmit,
+    handlePasteLink,
     handleDeleteVideo,
     handleConfirmAction,
     handleCancelAction,
