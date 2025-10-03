@@ -12,7 +12,7 @@ export default function CustomConfirm({
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
       <div className="bg-white rounded-lg shadow-lg p-6 w-96 text-center">
-        <p className="text-lg mb-4">{message}</p>
+        <p className="text-lg mb-4 dark:text-black">{message}</p>
         <div className="flex justify-center gap-4">
           <button
             onClick={onConfirm}

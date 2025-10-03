@@ -19,7 +19,7 @@ export default function Form({
         placeholder="Masukkan URL YouTube"
         value={youtubeUrl}
         onChange={(e) => setYoutubeUrl(e.target.value)}
-        className="p-3 text-lg border border-gray-300 rounded-md w-80"
+        className="p-3 text-lg border border-gray-300 rounded-md w-80 dark:text-black"
       />
       <button
         type="submit"
