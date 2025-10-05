@@ -12,18 +12,21 @@ export default function Form({
   inputRef,
 }: FormProps) {
   return (
-    <form onSubmit={onSubmit} className="flex items-center space-x-2">
+    <form
+      onSubmit={onSubmit}
+      className="flex flex-col sm:flex-row items-center gap-3 w-full max-w-[600px] px-4"
+    >
       <input
         ref={inputRef}
         type="text"
         placeholder="Masukkan URL YouTube"
         value={youtubeUrl}
         onChange={(e) => setYoutubeUrl(e.target.value)}
-        className="p-3 text-lg border border-gray-300 rounded-md w-80 dark:text-black"
+        className="flex-1 w-full p-3 text-base sm:text-lg border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-yellow-300 dark:text-black"
       />
       <button
         type="submit"
-        className="px-6 py-3 text-lg bg-yellow-400 text-slate-800 font-bold rounded-md hover:bg-yellow-500"
+        className="w-full sm:w-auto px-6 py-3 text-base sm:text-lg font-semibold text-slate-800 bg-yellow-400 rounded-lg shadow-md hover:bg-yellow-500 transform transition-all hover:scale-105 focus:outline-none focus:ring-2 focus:ring-yellow-300"
       >
         Tonton
       </button>

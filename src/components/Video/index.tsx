@@ -1,13 +1,35 @@
+"use client";
 import { useState } from "react";
+import YouTube, {
+  YouTubeEvent,
+  YouTubeProps,
+  YouTubePlayer,
+} from "react-youtube";
 
-interface IframeProps {
-  embedUrl: string;
+interface VideoProps {
+  videoId: string;
   onDelete: () => void;
   onPaste: () => Promise<void>;
+  onReady: (event: YouTubeEvent<YouTubePlayer>) => void;
 }
 
-export default function Video({ embedUrl, onDelete, onPaste }: IframeProps) {
+export default function Video({
+  videoId,
+  onDelete,
+  onPaste,
+  onReady,
+}: VideoProps) {
   const [isHovered, setIsHovered] = useState(false);
+
+  const opts: YouTubeProps["opts"] = {
+    width: "100%",
+    height: "100%",
+    playerVars: {
+      autoplay: 1,
+      controls: 1,
+      modestbranding: 1,
+    },
+  };
 
   return (
     <div
@@ -15,32 +37,30 @@ export default function Video({ embedUrl, onDelete, onPaste }: IframeProps) {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <div className="relative w-full">
-        <iframe
-          width="1280"
-          height="720"
-          src={embedUrl}
-          title="YouTube video player"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-          className="w-full h-[720px] rounded-xl"
-        ></iframe>
+      {/* Responsive wrapper (16:9) */}
+      <div className="relative w-full pb-[56.25%] overflow-hidden rounded-xl shadow-lg bg-black">
+        <YouTube
+          videoId={videoId}
+          opts={opts}
+          onReady={onReady}
+          iframeClassName="absolute top-0 left-0 w-full h-full rounded-xl"
+        />
       </div>
 
+      {/* Buttons */}
       <div
-        className={`flex gap-2 justify-center mt-6 transition-opacity duration-500 ease-in-out ${
-          isHovered ? "opacity-100" : "opacity-0"
-        }`}
+        className={`flex flex-col sm:flex-row px-4 sm:px-0 gap-3 justify-center mt-6 transition-opacity duration-500 ease-in-out 
+        ${isHovered ? "opacity-100" : "sm:opacity-0"}`}
       >
         <button
           onClick={onPaste}
-          className="w-2/12 min-w-fit text-slate-800 py-2 font-semibold rounded-lg shadow-lg transform transition-all hover:bg-yellow-400 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-yellow-300"
+          className="flex-1 sm:flex-none sm:w-40 text-slate-800 py-2 font-semibold rounded-lg shadow-lg transform transition-all hover:bg-yellow-400 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-yellow-300"
         >
           Ganti Video
         </button>
         <button
           onClick={onDelete}
-          className="w-2/12 min-w-fit text-slate-800 font-semibold rounded-lg shadow-lg transform transition-all hover:bg-red-500 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-red-300"
+          className="flex-1 sm:flex-none sm:w-40 text-slate-800 py-2 font-semibold rounded-lg shadow-lg transform transition-all hover:bg-red-500 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-red-300"
         >
           Hapus Video
         </button>
